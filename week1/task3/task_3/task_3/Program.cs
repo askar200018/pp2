@@ -16,13 +16,17 @@ namespace task_3
             int n = int.Parse(s1);
             string[] arr = s2.Split();
             int[] arr2 = new int[1000];
+            List<int> list = new List<int>();
             for(int i = 0; i < n; i++)
             {
-                arr2[i] = int.Parse(arr[i]);
+                for(int j = 0; j < 2; j++)
+                {
+                    list.Add(int.Parse(arr[i]));
+                }
             }
-            for(int i = 0; i < n; i++)
+            for(int i = 0; i < list.Count; i++)
             {
-                Console.Write(arr2[i] + " " + arr2[i] + " ");
+                Console.Write(list[i] + " ");
             }
 
         }
