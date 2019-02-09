@@ -1,0 +1,6 @@
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\bin\Debug\Task3.exe.config
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\bin\Debug\Task3.exe
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\bin\Debug\Task3.pdb
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\obj\Debug\Task3.exe
+C:\Users\Аскар\Documents\pp2\week2\Task3\Task3\Task3\obj\Debug\Task3.pdb
