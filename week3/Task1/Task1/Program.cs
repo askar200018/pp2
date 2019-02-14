@@ -154,7 +154,7 @@ namespace Task1
                     if(currentfs.GetType() == typeof(DirectoryInfo))
                     {
                         string path1 = currentfs.FullName;
-                        Directory.Delete(path1);
+                        Directory.Delete(path1 ,true);
 
                     }
                     else
