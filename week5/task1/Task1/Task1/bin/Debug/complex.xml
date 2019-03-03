@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ComplexNumber xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <x>4.5</x>
+  <y>9.6</y>
+  <s>4,5+9,6i</s>
+</ComplexNumber>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ListOfMarks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <listOfMarks>
+    <Mark>
+      <a>97</a>
+      <letter>A</letter>
+    </Mark>
+    <Mark>
+      <a>85</a>
+      <letter>B+</letter>
+    </Mark>
+    <Mark>
+      <a>73</a>
+      <letter>C+</letter>
+    </Mark>
+  </listOfMarks>
+</ListOfMarks>

@@ -10,15 +10,15 @@ namespace task_4
     {
         static void Main(string[] args)
         {
-            string s1 = Console.ReadLine();
-            int n = int.Parse(s1);
-            for(int  i = 0; i < n; i++)
+            string s1 = Console.ReadLine();//считываем с консоли
+            int n = int.Parse(s1);//переводим строку в число черз парс
+            for(int  i = 0; i < n; i++)//создаем цикл
             {
-                for(int j = 0; j <= i; j++)
+                for(int j = 0; j <= i; j++)//второй цикл до i включительно
                 {
-                    Console.Write("[*]");
+                    Console.Write("[*]");// печатаем звездочку
                 }
-                Console.WriteLine();
+                Console.WriteLine();// переводим на другую строку
             }
         }
     }
