@@ -54,6 +54,7 @@
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -215,7 +216,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(65, 65);
             this.button14.TabIndex = 15;
-            this.button14.Text = ".";
+            this.button14.Text = ",";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.BtnClick);
             // 
@@ -294,6 +295,7 @@
             this.button21.TabIndex = 25;
             this.button21.Text = "√";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.BtnClick);
             // 
             // button22
             // 
@@ -302,8 +304,9 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(65, 65);
             this.button22.TabIndex = 24;
-            this.button22.Text = "=";
+            this.button22.Text = "f";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.BtnClick);
             // 
             // button23
             // 
@@ -312,8 +315,9 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(65, 65);
             this.button23.TabIndex = 23;
-            this.button23.Text = "+";
+            this.button23.Text = "!";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.BtnClick);
             // 
             // button24
             // 
@@ -322,7 +326,7 @@
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(65, 65);
             this.button24.TabIndex = 22;
-            this.button24.Text = "-";
+            this.button24.Text = "%";
             this.button24.UseVisualStyleBackColor = true;
             // 
             // button25
@@ -332,14 +336,27 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(65, 65);
             this.button25.TabIndex = 21;
-            this.button25.Text = "*";
+            this.button25.Text = "1/x";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.BtnClick);
+            // 
+            // button26
+            // 
+            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button26.Location = new System.Drawing.Point(441, 402);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(65, 65);
+            this.button26.TabIndex = 26;
+            this.button26.Text = "p";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.BtnClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 500);
+            this.ClientSize = new System.Drawing.Size(555, 500);
+            this.Controls.Add(this.button26);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.button23);
@@ -402,6 +419,7 @@
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
     }
 }
 

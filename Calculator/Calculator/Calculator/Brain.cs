@@ -14,8 +14,8 @@ namespace Calculator
         Result,
         QuickOperation
     }
-    
-public delegate void ChangeTextDelegate(string text);
+   
+    public delegate void ChangeTextDelegate(string text);
 
     class Brain
     {
@@ -24,10 +24,10 @@ public delegate void ChangeTextDelegate(string text);
         string tempNumber = "";
         string resultNumber = "";
         string operation = "";
+        bool isPoint = true;
         public Brain(ChangeTextDelegate changeTextDelegate)
         {
             this.changeTextDelegate = changeTextDelegate;
-           
         }
 
         public void Process(string msg)
@@ -94,6 +94,11 @@ public delegate void ChangeTextDelegate(string text);
                 {
                     QuickOperation(msg, true);
                 }
+                else if (Rules.IsPoint(msg) && isPoint)
+                {
+                    isPoint = false;
+                    AccumulateDigits(msg, true);
+                }
             }
         }
         void Operation(string msg , bool isInput)
@@ -110,8 +115,9 @@ public delegate void ChangeTextDelegate(string text);
                 {
                     resultNumber = tempNumber;
                 }
+                isPoint = true;
                 operation = msg;
-                changeTextDelegate.Invoke(msg);
+                //changeTextDelegate.Invoke(msg);
                 tempNumber = "";
             }
             else
@@ -137,6 +143,7 @@ public delegate void ChangeTextDelegate(string text);
                     tempNumber = resultNumber;
                     resultNumber = "";
                 }
+                isPoint = true;
                 calcState = CalcState.QuickOperation;
                 operation = msg;
                 QuickCalulation();
@@ -166,6 +173,7 @@ public delegate void ChangeTextDelegate(string text);
         {
             if (isInput)
             {
+                isPoint = true;
                 calcState = CalcState.Result;
                 PerformCalculation();
                 operation = "";
@@ -235,7 +243,53 @@ public delegate void ChangeTextDelegate(string text);
             {
                 tempNumber = double.Parse(tempNumber) *(-1) + "";
             }
+            else if (operation == "1/x")
+            {
+                tempNumber = 1 / double.Parse(tempNumber) + "";
+            }
+            else if (operation == "!")
+            {
+                tempNumber = Factorial(double.Parse(tempNumber)) + "";
+            }
+            else if (operation == "f")
+            {
+                int res = 0;
+                int a = int.Parse(tempNumber);
+                for(int i = 2; i < a; i++)
+                {
+                    if (a % i == 0) res += i;
+                }
+                tempNumber = res.ToString();
+            }
+            else if (operation == "p")
+            {
+                int a = int.Parse(tempNumber);
+                int count = 0;
+                for( int i = 1; i <= a; i++)
+                {
+                    if (IsPrime(i)) count++;
+                }
+                tempNumber = count + "";
+            }
         }
-
+        double Factorial(double a)
+        {
+            int b = 1;
+            if (a == 0) return 1;
+            for(int i = 1; i <= a; i++)
+            {
+                b *= i;
+            }
+            return b;
+        }
+        bool IsPrime(int a)
+        {
+            if (a == 1) return false;
+            for(int i = 2; i <= Math.Sqrt(a); i++)
+            {
+                if (a % i == 0) return false;
+            }
+            return true;
+        }
     }
 }
