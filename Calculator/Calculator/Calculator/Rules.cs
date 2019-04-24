@@ -25,7 +25,7 @@ namespace Calculator
         }
         public static bool IsOperation(string c)
         {
-            string[] arr = new string[] { "+" , "-" , "*" , "/" };
+            string[] arr = new string[] { "+" , "-" , "*" , "/", "^" , "CC" , "cl" , "pp" };
             return arr.Contains(c);
         }
         public static bool IsResult(string c)
@@ -35,7 +35,7 @@ namespace Calculator
         }
         public static bool IsQuickOperation(string c)
         {
-            string[] arr = new string[] { "x^2" , "√", "←", "C", "±" , "1/x" , "!" , "f", "p"};
+            string[] arr = new string[] { "x^2", "√", "←", "C", "±", "1/x", "!", "f", "p", "B" , "cos" };
             return arr.Contains(c);
         }
         public static bool IsPoint(string c)

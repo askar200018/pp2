@@ -220,6 +220,92 @@ namespace Calculator
             {
                 resultNumber = (double.Parse(resultNumber) / double.Parse(tempNumber)).ToString();
             }
+            else if (operation == "^")
+            {
+                resultNumber = (Math.Pow(double.Parse(resultNumber) , double.Parse(tempNumber))).ToString();
+            }
+            else if (operation == "CC")
+            {
+                int a = int.Parse(tempNumber);
+                int b = int.Parse(resultNumber);
+                List<int> anum = new List<int>();
+                List<int> bnum = new List<int>();
+                for(int i = 2; i < a; i++)
+                {
+                    if(a % i == 0)
+                    {
+                        anum.Add(i);
+                    }
+                }
+                for (int i = 2; i < b; i++)
+                {
+                    if (b % i == 0)
+                    {
+                        bnum.Add(i);
+                    }
+                }
+                for(int i = 0;  i < anum.Count; i++)
+                {
+                    for(int j = 0; j < bnum.Count; j++)
+                    {
+                        if(anum[i] == bnum[j])
+                        {
+                            resultNumber = anum[i] + "";
+                            return;
+                        } 
+                    }
+                }
+                resultNumber = "1";
+            }
+            else if (operation == "cl")
+            {
+                int a = int.Parse(resultNumber);
+                int b = int.Parse(tempNumber);
+                int num1, num2;
+                int k = a;
+                //int k2 = a;
+                while (true)
+                {
+                    if(k % b == 0)
+                    {
+                        num1 = k;
+                        break;
+                    }
+                    k++;
+                }
+                k = a;
+                while (true)
+                {
+                    if (k % b == 0)
+                    {
+                        num2 = k;
+                        break;
+                    }
+                    k--;
+                }
+
+                if(Math.Abs(num2 - a) <= Math.Abs(num1 - a))
+                {
+                    resultNumber = num2 + "";
+                }else
+                {
+                    resultNumber = num1 + "";
+                }
+            }
+            else if (operation == "pp")
+            {
+                int a = int.Parse(resultNumber);
+                int b = int.Parse(tempNumber);
+                int count = 0;
+                for(int i = a ; i <= b; i++)
+                {
+                    if (IsPrime(i))
+                    {
+                        count++;
+                    }
+                }
+                resultNumber = count + "";
+            }
         }
         void QuickCalulation()
         {
@@ -270,6 +356,25 @@ namespace Calculator
                     if (IsPrime(i)) count++;
                 }
                 tempNumber = count + "";
+            }
+            else if (operation == "B")
+            {
+                int a = int.Parse(tempNumber);
+                //tempNumber = "";
+                //while(a != 0)
+                //{
+                //    tempNumber += a % 2 + "";
+                //    a /= 2;
+                //}
+                //char[] arr = tempNumber.ToCharArray();
+                //Array.Reverse(arr);
+                //tempNumber = new string(arr);
+                tempNumber = System.Convert.ToString(a , 2);
+            }
+            else if (operation == "cos")
+            {
+                double fl = (double.Parse(tempNumber) * Math.PI) / 180 ;
+                tempNumber = Math.Cos(fl) + "";
             }
         }
         double Factorial(double a)
