@@ -23,7 +23,7 @@ namespace Graph
             g = Graphics.FromImage(bitmap);
             pictureBox1.Image = bitmap;
         }
-        int x, y, r = 50, d = 5;
+        int x, y, r = 50, d = 0;
         Color[] colors = new Color[]
         {
             Color.Red,
@@ -45,7 +45,7 @@ namespace Graph
             {
                 x = e.Location.X;
                 y = e.Location.Y;
-                d = 5;
+                d = 0;
                 //r = 1; //с нуля
                 timer1.Start();
                 isClicked = true;
