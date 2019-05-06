@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Midterm
 {
-    class Football
+    [Serializable]
+    public class Football
     {
         public Team firstteam;
         public Team secondteam;
@@ -23,7 +25,8 @@ namespace Midterm
             this.referee = referee;
         }
     }
-    class Team
+    [Serializable]
+    public class Team
     {
         public List<Person> players;
         public string Name;
@@ -36,7 +39,8 @@ namespace Midterm
             this.coach = coach;
         }
     }
-    class Person
+    [Serializable]
+    public class Person
     {
         public string Name;
         public int age;
@@ -70,11 +74,15 @@ namespace Midterm
             Team team2 = new Team(players2, "Foot2", c2);
             Person referee = new Person("REF", 34, "RUS");
             Football football = new Football(team1, team2, "Wim", referee);
-            FileStream fs = new FileStream("FOOTBALL.xml", FileMode.Create, FileAccess.Write);
+            FileStream fs = new FileStream("football.xml", FileMode.OpenOrCreate, FileAccess.Write);
             XmlSerializer xs = new XmlSerializer(typeof(Football));
             xs.Serialize(fs, football);
             fs.Close();
-            Console.ReadKey();
+            //FileStream fs = new FileStream("foot.bin", FileMode.OpenOrCreate, FileAccess.Write);
+            //BinaryFormatter binaryFormatter = new BinaryFormatter();
+            //binaryFormatter.Serialize(fs, football);
+            //fs.Close();
+            //Console.ReadKey();
         }
     }
 }

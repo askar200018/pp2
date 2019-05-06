@@ -24,7 +24,7 @@ namespace FALL_BAll
             g = Graphics.FromImage(bitmap);
             pictureBox1.Image = bitmap;
         }
-        int x, y, r = 50;
+        int x, y, r = 40;
         Pen pen = new Pen(Color.Blue);
 
         private void timer1_Tick(object sender, EventArgs e)

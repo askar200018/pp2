@@ -25,7 +25,7 @@ namespace Calculator
         }
         public static bool IsOperation(string c)
         {
-            string[] arr = new string[] { "+" , "-" , "*" , "/", "^" , "CC" , "cl" , "pp" };
+            string[] arr = new string[] { "+" , "-" , "*" , "/", "^" , "CC" , "cl" , "pp" , "R" };
             return arr.Contains(c);
         }
         public static bool IsResult(string c)

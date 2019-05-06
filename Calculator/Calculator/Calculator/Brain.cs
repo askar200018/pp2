@@ -306,6 +306,26 @@ namespace Calculator
                 }
                 resultNumber = count + "";
             }
+            else if (operation == "R")
+            {
+                Random randomm = new Random();
+                int index = randomm.Next(1 , 5);
+                if(index == 1)
+                {
+                    resultNumber = (double.Parse(tempNumber) + double.Parse(resultNumber)).ToString();
+                }
+                else if(index == 2)
+                {
+                    resultNumber = (double.Parse(resultNumber) - double.Parse(tempNumber)).ToString();
+                }
+                else if(index == 3)
+                {
+                    resultNumber = (double.Parse(resultNumber) * double.Parse(tempNumber)).ToString();
+                } else if(index == 4)
+                {
+                    resultNumber = (double.Parse(resultNumber) / double.Parse(tempNumber)).ToString();
+                }
+            }
         }
         void QuickCalulation()
         {

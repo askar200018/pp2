@@ -39,13 +39,18 @@ namespace Task1
 
             Thread thread = new Thread(MoveSnake);
             thread.Start();
-
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
             while (keyInfo.Key != ConsoleKey.Escape && isAlive)
             {               
                 keyInfo = Console.ReadKey();
-                snake.ChangeDirection(keyInfo);
+                if(keyInfo.Key == ConsoleKey.Tab)
+                {
+                    //Save(this);
+                    Pause();
+                    break;
+                }
+                else snake.ChangeDirection(keyInfo);
             }
             Console.Clear();
             EndGame endgame = new EndGame(userInfo.name);
@@ -101,6 +106,33 @@ namespace Task1
             FileStream fileStream = new FileStream("game.bin", FileMode.Create, FileAccess.Write);
             binaryFormatter.Serialize(fileStream, g);
             fileStream.Close();
+        }
+        public void Pause()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(21, 20);
+            Console.WriteLine("Press C to continue game ");
+            Console.WriteLine("Press E to end game");
+            //ConsoleKeyInfo keyInfo = Console.ReadKey();
+            //if(keyInfo.Key == ConsoleKey.C)
+            //{
+            //    DeSer().Start();
+            //}
+            //else if(keyInfo.Key == ConsoleKey.E)
+            //{
+            //    Console.Clear();
+            //    Console.SetCursorPosition(21, 20);
+            //    Console.WriteLine("GAME OVER");
+            //}
+
+        }
+        public Game DeSer()
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream("game.bin", FileMode.Open, FileAccess.Read);
+            Game g = binaryFormatter.Deserialize(fileStream) as Game;
+            fileStream.Close();
+            return g;
         }
         public void ShowMenu()
         {

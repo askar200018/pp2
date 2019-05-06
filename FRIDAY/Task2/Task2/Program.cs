@@ -9,17 +9,16 @@ using System.Xml.Serialization;
 
 namespace Task2
 {
-    class Employee
+    public class Employee
     {
         public string Name;
         public int Wage;
-        List<Employee> employees;
         public Employee() { }
         public Employee(string Name , int Wage)
         {
             this.Name = Name;
             this.Wage = Wage;
-            employees.Add(this);
+            //employees.Add(this);
         }
         public void ShowAll()
         {
@@ -27,16 +26,15 @@ namespace Task2
 
             FileStream fs = new FileStream("em.xml", FileMode.OpenOrCreate, FileAccess.Write);
             XmlSerializer xs = new XmlSerializer(typeof(Employee));
-            xs.Serialize(fs, employees);
+            xs.Serialize(fs, this);
             fs.Close();
         }
-        public void AddedNew()
-        {
-            string s = Console.ReadLine();
-            int n = int.Parse(Console.ReadLine());
-            Employee employee = new Employee(s, n);
-            employees.Add(employee);
-        }
+        //public void AddedNew()
+        //{
+        //    string s = Console.ReadLine();
+        //    int n = int.Parse(Console.ReadLine());
+        //    Employee employee = new Employee(s, n);
+        //}
     }
 
     class Program
@@ -54,7 +52,6 @@ namespace Task2
             {
                 employees[i].ShowAll();
             }
-            employees[0].AddedNew();
         }
     }
 }
