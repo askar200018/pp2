@@ -25,9 +25,22 @@ namespace Alikh
         Bitmap bitmap;
         Random random = new Random();
         int r = 20;
+        Color[] colors = new Color[] 
+        {
+            Color.Red,
+            Color.Green,
+            Color.Orange,
+            Color.Yellow,
+            Color.White,
+            Color.YellowGreen,
+            Color.SkyBlue,
+            Color.Silver
+        };
+
         private void button1_Click(object sender, EventArgs e)
         {
-            pen = new Pen(Color.FromArgb(random.Next()));
+            int i = random.Next(0, 8);
+            pen = new Pen(colors[i]);
             timer1.Start();
         }
         private void Draw()

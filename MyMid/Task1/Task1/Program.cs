@@ -55,14 +55,38 @@ namespace Task1
             products.Add(product1);
             products.Add(product2);
             Shop shop = new Shop("SHOPPY", "SHOPNAME", products);
-            FileStream fs1 = new FileStream("complex.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            XmlSerializer xs = new XmlSerializer(typeof(Shop));
-            xs.Serialize(fs1, shop);
-            fs1.Close();
-            FileStream fs = new FileStream("complex.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            XmlSerializer xs2 = new XmlSerializer(typeof(Shop));
-            Shop comnum = xs2.Deserialize(fs) as Shop;
-            fs.Close();
+            //FileStream fs1 = new FileStream("complex2.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            //XmlSerializer xs = new XmlSerializer(typeof(Shop));
+            //xs.Serialize(fs1, shop);
+            //fs1.Close();
+            //FileStream fs = new FileStream("complex2.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            //XmlSerializer xs2 = new XmlSerializer(typeof(Shop));
+            //Shop comnum = xs2.Deserialize(fs) as Shop;
+            //fs.Close();
+
+            //XmlSerializer xml = new XmlSerializer(typeof(Shop));
+            //using (FileStream fs = new FileStream("shop4.xml", FileMode.OpenOrCreate ))
+            //{
+            //    xml.Serialize(fs, shop);
+            //}
+            using (FileStream fs = new FileStream("shop2.xml", FileMode.Open))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(Shop));
+                Shop newShop = xs.Deserialize(fs) as Shop;
+                Console.WriteLine("DESERIALIZE");
+            }
+
+            XmlSerializer formatter = new XmlSerializer(typeof(Shop));
+            //using (FileStream fs = new FileStream("shop5.xml", FileMode.OpenOrCreate))
+            //{
+            //    formatter.Serialize(fs, shop);
+            //}
+            //using (FileStream fs = new FileStream("shop2.xml", FileMode.Open))
+            //{
+            //    Shop shop2 = (Shop)formatter.Deserialize(fs);
+            //    Console.WriteLine("Deserialize");
+            //}
+
         }
         //public static void Ser(Shop shop)
         //{
